@@ -1,4 +1,227 @@
-# Lead Analysis Assistant
+# Lead Analysis Assistant [ENGLISH]
+
+![Lead Analysis Assistant Logo](https://img.shields.io/badge/Lead%20Analysis-Assistant-4F46E5)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+## Description
+
+Lead Analysis Assistant is a web application that uses artificial intelligence to analyze and classify leads (potential business contacts), providing detailed insights into their purchase potential. The application combines machine learning techniques with natural language processing to offer clear explanations about the factors that influence each lead's score.
+
+The system includes:
+- Modern and responsive user interface
+- User authentication system
+- Interactive dashboard to visualize and query leads
+- Integrated chatbot with RAG (Retrieval Augmented Generation) capabilities
+- API for integration with other systems
+
+## Screenshots
+
+### Login Screen
+![Login Screen](https://private-us-east-1.manuscdn.com/sessionFile/zyREOBFokVl9mOXY0yJKau/sandbox/loSkDYSJfLpW1jAe3rEaod-images_1748440202098_na1fn_L2hvbWUvdWJ1bnR1L2ltYWdlcy9sb2dpbg.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvenlSRU9CRm9rVmw5bU9YWTB5SkthdS9zYW5kYm94L2xvU2tEWVNKZkxwVzFqQWUzckVhb2QtaW1hZ2VzXzE3NDg0NDAyMDIwOThfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwybHRZV2RsY3k5c2IyZHBiZy5wbmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3NjcyMjU2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Wst88YwH2lMRW29zHtCU2EoJu73j7ET1jRmWzqYhPamSMs9Cssw-J4FfWB0J~lLzlb78IDyUYorNuwENgL~ogikiWunyJQxlvt6Fz7py8dgDb9vtMe5QC9hvobBRAdYdRfyT3v3HImdslyyDaLw64s58UqqqDcI4H7LEfhCGQh07jISDAmTyD1dMEyMlmTOuXuGPu6PYif1qIc1zg2NtM-ZzkvE0i3mwofCYMwA1TX416cvP9EJEC0k3Jk0bwoXIA7ZstepizdeFjaw5GZxQFCA2yephuTQasWo-9KB~-MpzCfiVPQUVZy5fABBzY3trhWoiqJcyeag17EYkuuNVEQ__)
+
+### Main Dashboard
+![Main Dashboard](https://private-us-east-1.manuscdn.com/sessionFile/zyREOBFokVl9mOXY0yJKau/sandbox/loSkDYSJfLpW1jAe3rEaod-images_1748440202099_na1fn_L2hvbWUvdWJ1bnR1L2ltYWdlcy9kYXNoYm9hcmQ.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvenlSRU9CRm9rVmw5bU9YWTB5SkthdS9zYW5kYm94L2xvU2tEWVNKZkxwVzFqQWUzckVhb2QtaW1hZ2VzXzE3NDg0NDAyMDIwOTlfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwybHRZV2RsY3k5a1lYTm9ZbTloY21RLnBuZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2NzIyNTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=two1Ww21NUEnw9PbDuD~fgufrA1vo~jFj-H5ntkVqvw4dMiFMmhwYKcKPvWcamT72jK5KcW97XMxI12KH6ML3K0Hoa1p0SrrK5SevQnFv3ODHgZa4mVPJcUyrqt8ZOIDp7NRL-qx7SjJkwtL4y1oBOHS4oe3DU78KBBlqKA-AISv4O8IK6HrvER~fQ9016EMhf~emnvfO54dF65I2erd9OTsDSoKgMVbbhX-c4EvPYyZsklAP3vEMocUTStGDUrhiQn1THKVK6EX1KQctYluK6P5Je~ww2Zha5nfCRf6Lbr0HJu8F6mMNsFN1wNUmJmWAugNLFc07LCElnc0V9tUzg__)
+
+## Key Features
+
+- **Lead Analysis**: Automatic classification of leads according to their purchase potential (A, B, C, D)
+- **Natural Language Explanations**: Interpretation of the factors that influence each score
+- **User Authentication**: Complete registration and login system
+- **Intelligent Chatbot**: AI-based assistant for queries about specific leads or general trends
+- **Responsive Interface**: Design adaptable to mobile and desktop devices
+- **Integration API**: Endpoints to add new leads and query information
+
+## Technologies Used
+
+- **Backend**: Flask (Python)
+- **Frontend**: HTML, CSS, JavaScript
+- **Database**: SQLite
+- **AI Models**:
+  - Ollama (Local LLM)
+  - FAISS (Vector store)
+  - LangChain (Framework for AI applications)
+  - HuggingFace Embeddings
+
+## Prerequisites
+
+- Python 3.6+
+- Ollama installed locally (for LLM functionalities)
+- Modern web browser
+
+## Installation
+
+1. Clone this repository:
+```bash
+git clone https://github.com/tu-usuario/lead-analysis-assistant.git
+cd lead-analysis-assistant
+```
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Make sure you have Ollama installed and the gemma3:4b model available:
+```bash
+# Install Ollama following the instructions at https://ollama.ai/
+ollama pull gemma3:4b
+```
+
+5. Prepare the data files (optional, the application can work in demo mode without them):
+   - `shap_values.csv`: SHAP values for each lead
+   - `prediction.csv`: Predictions and classifications for each lead
+   - `description_crm_data.csv`: Descriptions of CRM variables
+
+6. Start the application:
+```bash
+python app.py
+```
+
+7. Access the application in your browser:
+```
+http://localhost:5000
+```
+
+## File Structure
+
+```
+lead-analysis-assistant/
+├── app.py                  # Main Flask application
+├── add_lead.py             # Script to add new leads
+├── templates/
+│   ├── login.html          # Login page
+│   └── dashboard.html      # Main dashboard
+├── static/
+│   ├── css/                # CSS files
+│   ├── js/                 # JavaScript files
+│   └── favicon.ico         # Favicon
+├── shap_values.csv         # SHAP values for each lead
+├── prediction.csv          # Predictions and classifications
+├── description_crm_data.csv # Variable descriptions
+├── faiss_index/            # FAISS vector index
+├── lead_assistant.db       # SQLite database
+└── requirements.txt        # Project dependencies
+```
+
+## Usage
+
+### Accessing the Application
+
+1. Start the application with `python app.py`
+2. Access `http://localhost:5000` in your browser
+3. Log in with the default credentials:
+   - Email: admin@leadanalysis.com
+   - Password: admin123
+
+### Querying Leads
+
+1. Browse the list of leads in the side panel
+2. Select a lead to view its details
+3. Use the chatbot to ask specific questions about the selected lead
+
+### General Queries
+
+You can ask general questions to the chatbot about:
+- Factors that influence scores
+- Trends in the data
+- Recommendations to improve lead quality
+
+### Adding New Leads
+
+You can add new leads using the `add_lead.py` script:
+
+```bash
+python add_lead.py
+```
+
+Or via a POST request to the API:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d @new_lead.json http://localhost:5000/api/add_lead
+```
+
+## API Reference
+
+### Available Endpoints
+
+#### Authentication
+
+- `POST /api/login`: Log in
+- `POST /api/register`: Register new user
+- `GET /api/logout`: Log out
+- `GET /api/current_user`: Get current user information
+
+#### Leads and Chat
+
+- `POST /api/chat`: Send message to chatbot
+- `GET /api/chat/stream`: Streaming version of the chatbot
+- `POST /api/add_lead`: Add new lead
+- `GET /api/status`: Check system status
+
+## Development
+
+### Main Dependencies
+
+The main dependencies of the project are:
+
+```
+flask
+pandas
+langchain
+langchain_community
+langchain_huggingface
+faiss-cpu
+ollama
+sqlite3
+werkzeug
+```
+
+### Development Configuration
+
+1. Clone the repository
+2. Install development dependencies
+3. Run the application in debug mode:
+```bash
+FLASK_ENV=development python app.py
+```
+
+## Contributions
+
+Contributions are welcome. Please follow these steps:
+
+1. Fork the repository
+2. Create a branch for your feature (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Your Name - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
+
+Project Link: [https://github.com/your-username/lead-analysis-assistant](https://github.com/your-username/lead-analysis-assistant)
+
+## Acknowledgments
+
+- [Ollama](https://ollama.ai/) for providing local language models
+- [LangChain](https://www.langchain.com/) for the AI application framework
+- [FAISS](https://github.com/facebookresearch/faiss) for the similarity search library
+
+
+
+# Lead Analysis Assistant [SPANISH]
 
 ![Lead Analysis Assistant Logo](https://img.shields.io/badge/Lead%20Analysis-Assistant-4F46E5)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
