@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Analysis Assistant - Acceso</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4F46E5;
+      --primary-light: #EEF2FF;
+      --primary-dark: #4338CA;
+      --background-color: #F3F4F6;
+      --window-background: #ffffff;
+      --text-color: #1F2937;
+      --border-color: #E5E7EB;
+      --input-background: #F9FAFB;
+      --hover-color: #F3F4F6;
+      --send-button: #4F46E5;
+      --error-color: #EF4444;
+      --success-color: #10B981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .auth-container {
+      max-width: 900px;
+      width: 90%;
+      display: flex;
+      background-color: var(--window-background);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      height: auto;
+      min-height: 600px;
+    }
+
+    .auth-image {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .auth-logo {
+      font-size: 48px;
+      margin-bottom: 1.5rem;
+    }
+
+    .auth-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .auth-subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      text-align: center;
+      max-width: 80%;
+      line-height: 1.6;
+    }
+
+    .auth-features {
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    .auth-feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .feature-icon {
+      margin-right: 12px;
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      font-size: 14px;
+    }
+
+    .auth-form-container {
+      flex: 1;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-form-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-color);
+      opacity: 0.7;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .auth-tab.active {
+      color: var(--primary-color);
+      opacity: 1;
+    }
+
+    .auth-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary-color);
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: var(--input-background);
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .form-help {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .form-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .form-submit:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-alt {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-divider {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+    }
+
+    .divider-line {
+      flex-grow: 1;
+      height: 1px;
+      background-color: var(--border-color);
+    }
+
+    .divider-text {
+      padding: 0 1rem;
+      color: var(--text-color);
+      opacity: 0.6;
+      font-size: 0.85rem;
+    }
+
+    .social-login {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      background-color: var(--hover-color);
+      transform: translateY(-2px);
+    }
+
+    .social-icon {
+      font-size: 1.2rem;
+    }
+
+    .google-icon {
+      color: #DB4437;
+    }
+
+    .microsoft-icon {
+      color: #0078D4;
+    }
+
+    .alert {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .alert-error {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--error-color);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .alert-success {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--success-color);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .icon-spin {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .auth-container {
+        flex-direction: column;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      
+      .auth-image {
+        padding: 2rem 1rem;
+        min-height: 180px;
+      }
+      
+      .auth-form-container {
+        padding: 1.5rem;
+      }
+      
+      .auth-features {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-image">
+      <div class="auth-logo">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <h1 class="auth-title">Lead Analysis Assistant</h1>
+      <p class="auth-subtitle">Optimiza tu estrategia de marketing con análisis avanzado de leads y recomendaciones personalizadas.</p>
+      
+      <div class="auth-features">
+        <div class="auth-feature">
+          <div class="feature-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <div class="feature-text">Análisis detallado de la calidad de leads</div>
+        </div>
+        <div class="auth-feature">
+          <div class="feature-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="feature-text">Inteligencia artificial para clasificación</div>
+        </div>
+        <div class="auth-feature">
+          <div class="feature-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="feature-text">Recomendaciones para mejorar conversiones</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="auth-form-container">
+      <h2 class="auth-form-title">Bienvenido</h2>
+      
+      <div class="auth-tabs">
+        <div class="auth-tab active" data-form="login">Iniciar Sesión</div>
+        <div class="auth-tab" data-form="register">Registrarse</div>
+      </div>
+      
+      <div id="loginAlert" class="alert alert-error">
+        <i class="fas fa-exclamation-circle"></i> Las credenciales ingresadas no son correctas.
+      </div>
+      
+      <div id="registerAlert" class="alert alert-success">
+        <i class="fas fa-check-circle"></i> Cuenta creada exitosamente. Ahora puedes iniciar sesión.
+      </div>
+      
+      <!-- Formulario de Inicio de Sesión -->
+      <form id="loginForm" class="auth-form active">
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Correo electrónico</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="nombre@empresa.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Contraseña</label>
+          <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+          <div class="form-help">
+            <div class="form-remember">
+              <input type="checkbox" id="remember"> <label for="remember">Recordarme</label>
+            </div>
+            <a href="#" class="form-link">¿Olvidaste tu contraseña?</a>
+          </div>
+        </div>
+        
+        <button type="submit" id="loginButton" class="form-submit">
+          <span id="loginText">Iniciar Sesión</span>
+          <i id="loginSpinner" class="fas fa-spinner icon-spin" style="display: none;"></i>
+        </button>
+        
+        <div class="form-divider">
+          <div class="divider-line"></div>
+          <div class="divider-text">o continuar con</div>
+          <div class="divider-line"></div>
+        </div>
+        
+        <div class="social-login">
+          <button type="button" class="social-btn">
+            <i class="fab fa-google social-icon google-icon"></i>
+          </button>
+          <button type="button" class="social-btn">
+            <i class="fab fa-microsoft social-icon microsoft-icon"></i>
+          </button>
+        </div>
+      </form>
+      
+      <!-- Formulario de Registro -->
+      <form id="registerForm" class="auth-form">
+        <div class="form-group">
+          <label for="registerName" class="form-label">Nombre completo</label>
+          <input type="text" id="registerName" class="form-input" placeholder="Juan Pérez" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="registerEmail" class="form-label">Correo electrónico</label>
+          <input type="email" id="registerEmail" class="form-input" placeholder="nombre@empresa.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="registerPassword" class="form-label">Contraseña</label>
+          <input type="password" id="registerPassword" class="form-input" placeholder="Mínimo 8 caracteres" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="registerCompany" class="form-label">Empresa</label>
+          <input type="text" id="registerCompany" class="form-input" placeholder="Nombre de tu empresa">
+        </div>
+        
+        <button type="submit" id="registerButton" class="form-submit">
+          <span id="registerText">Crear Cuenta</span>
+          <i id="registerSpinner" class="fas fa-spinner icon-spin" style="display: none;"></i>
+        </button>
+        
+        <p class="form-alt">Al registrarte, aceptas nuestros <a href="#" class="form-link">Términos de servicio</a> y <a href="#" class="form-link">Política de privacidad</a>.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      // Variables para las pestañas y formularios
+      const tabs = document.querySelectorAll('.auth-tab');
+      const forms = document.querySelectorAll('.auth-form');
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const loginAlert = document.getElementById('loginAlert');
+      const registerAlert = document.getElementById('registerAlert');
+      
+      // Botones y spinners
+      const loginButton = document.getElementById('loginButton');
+      const registerButton = document.getElementById('registerButton');
+      const loginText = document.getElementById('loginText');
+      const loginSpinner = document.getElementById('loginSpinner');
+      const registerText = document.getElementById('registerText');
+      const registerSpinner = document.getElementById('registerSpinner');
+      
+      // Cambio entre pestañas
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const formId = tab.getAttribute('data-form');
+          
+          // Activar pestaña
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          // Mostrar formulario correspondiente
+          forms.forEach(form => {
+            form.classList.remove('active');
+            if (form.id === `${formId}Form`) {
+              form.classList.add('active');
+            }
+          });
+          
+          // Ocultar alertas al cambiar de pestaña
+          loginAlert.style.display = 'none';
+          registerAlert.style.display = 'none';
+        });
+      });
+      
+      // Función para mostrar una alerta
+      function showAlert(alertElement, message, isSuccess = false) {
+        alertElement.className = isSuccess ? 'alert alert-success' : 'alert alert-error';
+        alertElement.innerHTML = `<i class="fas fa-${isSuccess ? 'check' : 'exclamation'}-circle"></i> ${message}`;
+        alertElement.style.display = 'block';
+      }
+      
+      // Validación básica de email
+      function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+      
+      // Validación de contraseña (mínimo 8 caracteres)
+      function isValidPassword(password) {
+        return password.length >= 8;
+      }
+      
+      // Iniciar sesión usando la API backend
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        
+        // Validación básica del lado del cliente
+        if (!email || !password) {
+          showAlert(loginAlert, 'Por favor, ingresa tu correo y contraseña.');
+          return;
+        }
+        
+        if (!isValidEmail(email)) {
+          showAlert(loginAlert, 'Por favor, ingresa un correo electrónico válido.');
+          return;
+        }
+        
+        // Mostrar spinner y desactivar botón
+        loginText.style.display = 'none';
+        loginSpinner.style.display = 'inline-block';
+        loginButton.disabled = true;
+        
+        // Enviar solicitud a la API
+        fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.success) {
+            // Redirigir al dashboard si el login es exitoso
+            window.location.href = '/dashboard';
+          } else {
+            // Mostrar alerta de error
+            showAlert(loginAlert, data.message || 'Las credenciales ingresadas no son correctas.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          showAlert(loginAlert, 'Error de conexión. Intente nuevamente.');
+        })
+        .finally(() => {
+          // Restaurar botón
+          loginText.style.display = 'inline-block';
+          loginSpinner.style.display = 'none';
+          loginButton.disabled = false;
+        });
+      });
+      
+      // Registro de usuario usando la API backend
+      registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('registerName').value.trim();
+        const email = document.getElementById('registerEmail').value.trim();
+        const password = document.getElementById('registerPassword').value;
+        const company = document.getElementById('registerCompany').value.trim();
+        
+        // Validación básica del lado del cliente
+        if (!name || !email || !password) {
+          showAlert(registerAlert, 'Por favor, completa todos los campos obligatorios.');
+          return;
+        }
+        
+        if (!isValidEmail(email)) {
+          showAlert(registerAlert, 'Por favor, ingresa un correo electrónico válido.');
+          return;
+        }
+        
+        if (!isValidPassword(password)) {
+          showAlert(registerAlert, 'La contraseña debe tener al menos 8 caracteres.');
+          return;
+        }
+        
+        // Mostrar spinner y desactivar botón
+        registerText.style.display = 'none';
+        registerSpinner.style.display = 'inline-block';
+        registerButton.disabled = true;
+        
+        // Enviar solicitud a la API
+        fetch('/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email, password, company }),
+        })
+        .then(response => {
+          if (!response.ok) {
+            return response.json().then(err => {
+              throw new Error(err.message || `Error HTTP: ${response.status}`);
+            });
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.success) {
+            // Mostrar alerta de éxito
+            showAlert(registerAlert, data.message, true);
+            
+            // Limpiar formulario
+            registerForm.reset();
+            
+            // Cambiar automáticamente a la pestaña de inicio de sesión después de un breve delay
+            setTimeout(() => {
+              document.querySelector('.auth-tab[data-form="login"]').click();
+            }, 2000);
+          } else {
+            // Mostrar alerta de error
+            showAlert(registerAlert, data.message);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          showAlert(registerAlert, error.message || 'Error de conexión. Intente nuevamente.');
+        })
+        .finally(() => {
+          // Restaurar botón
+          registerText.style.display = 'inline-block';
+          registerSpinner.style.display = 'none';
+          registerButton.disabled = false;
+        });
+      });
+      
+      // Añadir evento a los botones de login social (por implementar)
+      document.querySelectorAll('.social-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          alert('Inicio de sesión con redes sociales no implementado en este prototipo.');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
