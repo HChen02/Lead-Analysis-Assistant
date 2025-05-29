@@ -53,7 +53,7 @@ The system includes:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/tu-usuario/lead-analysis-assistant.git
+git clone https://github.com/HChen02/Lead-Analysis-Assistant.git
 cd lead-analysis-assistant
 ```
 
@@ -209,16 +209,16 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
+Name - Hao Chen - hc754491@gmail.com
 
-Project Link: [https://github.com/your-username/lead-analysis-assistant](https://github.com/your-username/lead-analysis-assistant)
+Project Link: [https://github.com/your-username/lead-analysis-assistant](https://github.com/HChen02/Lead-Analysis-Assistant)
 
 ## Acknowledgments
 
 - [Ollama](https://ollama.ai/) for providing local language models
 - [LangChain](https://www.langchain.com/) for the AI application framework
 - [FAISS](https://github.com/facebookresearch/faiss) for the similarity search library
-
+- [ByRATINGS](https://byratings.com/es/) for the idea of the project
 
 
 # Lead Analysis Assistant [SPANISH]
@@ -276,7 +276,8 @@ El sistema incluye:
 
 1. Clona este repositorio:
 ```bash
-git clone https://github.com/tu-usuario/lead-analysis-assistant.git
+git clone https://github.com/HChen02/Lead-Analysis-Assistant.git
+
 cd lead-analysis-assistant
 ```
 
@@ -432,12 +433,13 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE par
 
 ## Contacto
 
-Tu Nombre - [@tu_twitter](https://twitter.com/tu_twitter) - email@ejemplo.com
+Nombre - Hao Chen - hc754491@gmail.com
 
-Link del proyecto: [https://github.com/tu-usuario/lead-analysis-assistant](https://github.com/tu-usuario/lead-analysis-assistant)
+Link del proyecto: [https://github.com/your-username/lead-analysis-assistant](https://github.com/HChen02/Lead-Analysis-Assistant)
 
 ## Agradecimientos
 
 - [Ollama](https://ollama.ai/) por proporcionar modelos de lenguaje locales
 - [LangChain](https://www.langchain.com/) por el framework para aplicaciones de IA
 - [FAISS](https://github.com/facebookresearch/faiss) por la biblioteca de búsqueda de similitud
+- [ByRATINGS](https://byratings.com/es/) por idea del proyecto
