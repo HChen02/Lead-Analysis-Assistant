@@ -218,7 +218,7 @@ Project Link: [https://github.com/your-username/lead-analysis-assistant](https:/
 - [Ollama](https://ollama.ai/) for providing local language models
 - [LangChain](https://www.langchain.com/) for the AI application framework
 - [FAISS](https://github.com/facebookresearch/faiss) for the similarity search library
-- [ByRATINGS](https://byratings.com/es/) for the idea of the project
+- [ByRATINGS](https://byratings.com/es/) for the data of the project
 
 
 # Lead Analysis Assistant [SPANISH]
@@ -442,4 +442,4 @@ Link del proyecto: [https://github.com/your-username/lead-analysis-assistant](ht
 - [Ollama](https://ollama.ai/) por proporcionar modelos de lenguaje locales
 - [LangChain](https://www.langchain.com/) por el framework para aplicaciones de IA
 - [FAISS](https://github.com/facebookresearch/faiss) por la biblioteca de búsqueda de similitud
-- [ByRATINGS](https://byratings.com/es/) por idea del proyecto
+- [ByRATINGS](https://byratings.com/es/) por data del proyecto
